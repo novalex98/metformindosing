@@ -34,7 +34,8 @@ p3 = 2.29/(10^4);
 
 tspan = [0 100];
 
-[t,y] = ode45(@(t,y) [(p1 - y(2))*y(1) - (p1*Gb); p2*y(2) + p3*y(3); y(4) - n*y(3); gamma*(y(1) - h)*t - n*y(3)], tspan, initCond);
+% [t,y] = ode45(@(t,y) [(p1 - y(2))*y(1) - (p1*Gb); p2*y(2) + p3*y(3); y(4) - n*y(3); gamma*(y(1) - h)*t - n*y(3)], tspan, initCond);
+[t,y] = ode45(@(t,y) [(p1 - y(2))*y(1) - (p1*Gb); p2*y(2) + p3*y(3); gamma*(y(1) - h)*t - n*y(3)], tspan, [G0 I0 I0]);
 
 plot(t,y);
-legend('G','X','I','IDR');
+legend('G','X','I');
