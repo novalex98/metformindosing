@@ -2,6 +2,7 @@
 % Bioen 485 model
 
 %% Bergman Model
+clear all; close all; clc;
 
 % initial conditions
 G0 = 256;
