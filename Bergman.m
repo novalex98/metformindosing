@@ -29,8 +29,8 @@ p3 = 2.29/(10^4);
 % dIDR = gamma*(G - h)*t - n*I;
 
 % 1)dG, 2)dX, 3)dI, 4)dIDR
-f = @(t,y) [(p1 - y(2))*y(1) - (p1*G0); p2*y(2) + p3*y(3); y(4) - n*y(3); gamma*(y(1) - h)*t - n*y(3)];
+% f = @(t,y) [(p1 - y(2))*y(1) - (p1*G0), p2*y(2) + p3*y(3), y(4) - n*y(3), gamma*(y(1) - h)*t - n*y(3)];
 
 tspan = [0 100];
 
-[t,y] = ode45(@(t,y) f, tspan, initCond);
+[t,y] = ode45(@(t,y) [(p1 - y(2))*y(1) - (p1*G0); p2*y(2) + p3*y(3); y(4) - n*y(3); gamma*(y(1) - h)*t - n*y(3)], tspan, initCond);
