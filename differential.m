@@ -9,14 +9,14 @@ function dx=differential(t,x,P)
     T_hr=6;     % hr-period
     T=T_hr*3600;% sec-Period
     Obs_hr=72;  % hr-observation time
-    Obs=72*3600;% sec-observation time
+    Obs=Obs_hr*3600;% sec-observation time
     d=w:T:Obs;  % (determines where the middle of the pulse locates):Period:
                 % (until what range-duration of the observations in seconds)
-    D=dosage*pulstran(t,d,'rectpuls',w);
-    dx(1)=-x(1)*(P(1)+P(2))+D;
+    D=dosage/w*pulstran(t,d,'rectpuls',w);
+    dx(1)=-1*x(1)*(P(1)+P(2))+D;
     dx(2)=x(1)*P(2)+x(4)*P(3)-x(2)*P(4);
     dx(3)=P(4)*x(2)+x(4)*P(5)-x(3)*P(6);
-    dx(4)=x(3)*P(6)-x(4)*(P(5)+P(2)+P(7));
+    dx(4)=x(3)*P(6)-x(4)*(P(5)+P(3)+P(7));
     
     dx=[dx(1);
         dx(2);
