@@ -9,13 +9,13 @@ f_ex    = f_ex_hr*3600;  %time for final examination [sec]
 tspan   = 0:.1:f_ex;
 
 % parameters
-kg0=1.88e-03;
-kgg=1.85e-03;
-ksg=4.13;
-kgl=0.458;
-ksl=1.01e-02;
-kls=0.910;
-ks0=0.509;
+kg0=(1.88e-03)/60;
+kgg=(1.85e-03)/60;
+ksg=4.13/60;
+kgl=0.458/60;
+ksl=(1.01e-02)/60;
+kls=0.910/60;
+ks0=0.509/60;
 
 params=[kg0, kgg, ksg, kgl, ksl, kls, ks0];
 
@@ -39,3 +39,4 @@ plot(tspan,X(:,3)); hold on;
 plot(tspan,X(:,4)); hold on;
 xlabel('time (sec)')
 ylabel('Metformin Amount')
+legend('gut lumen', 'gut wall', 'plasma', 'interstitium');
