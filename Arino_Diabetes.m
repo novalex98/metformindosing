@@ -65,7 +65,7 @@ plot(tspan,insulin); hold on;
 %plot(tspan,integral); hold on;
 xlabel('time (sec)')
 ylabel('Amount')
-legend('glucose', 'insulin', 'integral of glucose');
+legend('Glucose (mg/dl)', 'Insulin (pM)', 'integral of glucose');
 
 end
 function dx=dGdI(t,x,p)
