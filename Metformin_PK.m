@@ -39,4 +39,4 @@ plot(tspan,X(:,3)); hold on;
 plot(tspan,X(:,4)); hold on;
 xlabel('time (sec)')
 ylabel('Metformin Amount')
-legend('gut lumen', 'gut wall', 'plasma', 'interstitium');
+legend('gut lumen', 'gut wall', 'liver', 'plasma');
