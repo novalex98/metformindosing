@@ -6,23 +6,23 @@
 
 function dG=feeding(t,w,amount)
     IC = false;
-    if (t<3*60*60*10)
+    if (t<3*60)
         IC = true;
     end
-    hr24 = 24*60*60*10;
+    hr24 = 24*60;
     t = mod(t,hr24);
     dG = 0;
-    if any(t == 0:w)
-        dG = (amount*1000)/(50*w);
+    if any(abs((0:.01:w)-t)<.0001)
+        dG = (amount*1000)/(50*w*10);
     end
-    hr5 = 5*60*60*10;
+    hr5 = 5*60;
     lunch = w+hr5;
-    if any(t == lunch:lunch+w)
-        dG = (amount*1000)/(50*w);
+    if any(abs((lunch:.01:(lunch+w))-t)<.0001)
+        dG = (amount*1000)/(50*w*10);
     end
     dinner = lunch+w+hr5;
-    if any(t == dinner:dinner+w)
-        dG = (amount*1000)/(50*w);
+    if any(abs((dinner:.01:(dinner+w))-t) < .0001)
+        dG = (amount*1000)/(50*w*10);
     end
     if IC
         dG = 0;
