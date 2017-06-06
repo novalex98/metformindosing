@@ -75,7 +75,7 @@ S_GI=(E_max_GI.*(X(:,2)).^n_GI)./((E_A_50_GI).^n_GI+(X(:,2)).^n_GI);
 E_max_S= 0.148;       % maximum effect [dimensionless]
 E_A_50_S=1.024;        % metformin amount at the biophase
                       % that produces 50% of maximal effect [micro-gram]
-n_S=2;                % shape factor
+n_S=5;                % shape factor
 
 
 % A_S=400;              % metformin amount--for test [mg]
@@ -114,12 +114,12 @@ R(1)=400;
 %     Obs = Obs_hr*60; % minute observation time
 %     d=w:T:Obs;
 %     D=mealGlucose/w*pulstran(tspan,d,'rectpuls',w);
-% absorptionFactor = 20; % Parameter can be fit
+absorptionFactor = 3; % Parameter can be fit
 for i=1:(length(tspan)-1)
-%     F(i) = feeding(tspan(i),15,42);
-%     R(i+1)=R(i)+(kin.*(1-I_liver(i))-kout.*(1+S_GI(i)+S_S(i)).*R(i)).*(tspan(i+1)-tspan(i))+(F(i)./absorptionFactor);%+...
+     F(i) = feeding(tspan(i),15,42);
+     R(i+1)=R(i)+(kin.*(1-I_liver(i))-kout.*(1+S_GI(i)+S_S(i)).*R(i)).*(tspan(i+1)-tspan(i))+(F(i)./absorptionFactor);%+...
 %     D(i);
-    R(i+1)=R(i)+(kin.*(1-I_liver(i))-kout.*(1+S_GI(i)+S_S(i)).*R(i)).*(tspan(i+1)-tspan(i));
+%    R(i+1)=R(i)+(kin.*(1-I_liver(i))-kout.*(1+S_GI(i)+S_S(i)).*R(i)).*(tspan(i+1)-tspan(i));
 end
 
 norm_LB=zeros(length(tspan),1);            % Normal range--lower bound
