@@ -3,7 +3,7 @@
 % dX
 
 function dx=differential(t,x,P)
-    dosage=1000/6; % mg-- This number should be multiplied by the pulse train
+    dosage=450/6; % mg-- This number should be multiplied by the pulse train
                 % to give the right input
     w=1;       % sec-width of every pulse
     T_hr=6/6;   % hr-period
