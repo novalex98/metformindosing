@@ -3,13 +3,13 @@
 % dX
 
 function dx=differential(t,x,P)
-    dosage=450/6; % mg-- This number should be multiplied by the pulse train
+    dosage=450; % mg-- This number should be multiplied by the pulse train
                 % to give the right input
-    w=1;       % sec-width of every pulse
-    T_hr=1;   % hr-period
-    T=T_hr*60;% sec-Period
+    w=30;       % sec-width of every pulse
+    T_hr=6*3;   % hr-period
+    T=T_hr*3600;% sec-Period
     Obs_hr=72;  % hr-observation time
-    Obs=Obs_hr*60;% sec-observation time
+    Obs=Obs_hr*3600;% sec-observation time
     d=w:T:Obs;  % (determines where the middle of the pulse locates):Period:
                 % (until what range-duration of the observations in seconds)
     D=dosage/w*pulstran(t,d,'rectpuls',w);
